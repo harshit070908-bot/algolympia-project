@@ -190,6 +190,10 @@ font-size:40px;
 .features_card{
 padding-left: 150px;
 padding-top:50px;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap:20px;
 
 }
 .row1{
