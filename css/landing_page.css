@@ -3,78 +3,158 @@
     padding: 0;
     box-sizing: border-box;
 }
+:root {
+  /* Brand Colors */
+  --color-primary: #0052FF;          /* Main brand blue - buttons, links, active states */
+  --color-primary-hover: #0041CC;    /* Darker blue on hover */
+  --color-primary-light: #E6EFFF;    /* Light blue - backgrounds, badges */
+
+  --color-secondary: #00C896;        /* Success/growth green - profits, positive trends */
+  --color-secondary-hover: #00A67D;
+  --color-secondary-light: #E5F9F3;
+
+  --color-danger: #FF3B30;           /* Loss/error - red for negative numbers, errors */
+  --color-danger-hover: #E6291F;
+  --color-danger-light: #FFECEB;
+
+  --color-warning: #FFB800;          /* Alerts, pending states */
+  --color-warning-hover: #E6A600;
+  --color-warning-light: #FFF7E0;
+
+  /* Neutrals - Light Mode */
+  --color-bg-light: #FFFFFF;         /* Main background */
+  --color-surface-light: #F7F8FA;    /* Cards, panels */
+  --color-border-light: #E5E8EC;     /* Dividers, input borders */
+  --color-text-light-primary: #0A0E17;   /* Headings, main text */
+  --color-text-light-secondary: #5C6470; /* Subtext, labels */
+  --color-text-light-muted: #9CA3AF;     /* Placeholder, disabled */
+
+  /* Neutrals - Dark Mode */
+  --color-bg-dark: #0A0E17;          /* Main background */
+  --color-surface-dark: #131826;     /* Cards, panels */
+  --color-border-dark: #232936;      /* Dividers, input borders */
+  --color-text-dark-primary: #F5F7FA;    /* Headings, main text */
+  --color-text-dark-secondary: #9CA3AF;  /* Subtext, labels */
+  --color-text-dark-muted: #5C6470;      /* Placeholder, disabled */
+
+  /* Chart/Data Colors */
+  --color-chart-1: #0052FF;
+  --color-chart-2: #00C896;
+  --color-chart-3: #FFB800;
+  --color-chart-4: #7C3AED;
+  --color-chart-5: #FF3B30;
+}
 body{
+    display: flex;
+    flex-direction: column;
     background-color: whitesmoke;
     font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(-45deg,#4c5673, #3fa9f5,#2ac9a8, #3e596d);
+    animation: gradient 8s ease infinite;
+    background-size: 400% 400%;
+    min-height: 100vh;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 20px;
+    background-color: white;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: 0 0 10px 10px;
+    position: sticky;
+    top: 0;
+}
+header h1{
+    color: #2563eb;
+}
+header span{
+    color: #10b981;
+}
+header > div{
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 nav{
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding-left: 150px;
-    padding-right: 150px;
-    padding-bottom: 10px;
-      padding-top: 10px;
-     
+    gap: 20px;
 }
-nav a{
-    transition: 0.3s;
-}
-nav a:hover{
-    transform:scale(1.04);
-    color: rgb(3, 79, 54);
-}
-.name{
-    display: flex;
-    gap:2px;
-}
-
-.rightcontent{
-    display: flex;
-    gap:30px;
-    align-items: center;
-}
-.rightcontent a{
-    color: black;
+header a{
+    color: var(--color-primary);
     text-decoration: none;
+    transition: color 0.3s ease;
 }
-.rightcontent button{
+header a:hover{
+    color: var(--color-primary-hover);
+    text-decoration: underline;
+}
+header button{
+    padding: 12px 20px;
     border-radius: 10px;
-    color: aliceblue;
-    background-color: #2158d9;
-    border:none;
-    padding-top:12px;
-    padding-bottom: 12px;
-    padding-left: 10px;
-    padding-right: 10px;
- box-shadow:0 10px 30px rgba(2, 77, 226, 0.393);
-    font-size: 20px;
-    transition: 0.3s;
+    border: none;
+    background: var(--color-primary);
+    color: var(--color-text-dark-primary);
+    box-shadow: 10px 4px 12px rgba(0, 0, 0, 0.08);
 }
-.rightcontent button:hover{
-    transform:scale(1.04);
+header button:hover{
+    background-color: var(--color-primary-hover);
 }
 
-.centercard{
-    margin: auto;
+main{
+    flex: 1;
+    display: flex;
+    align-items: center;
     justify-content: center;
-    width: 100%;
-    height: 600px;
-    color: whitesmoke;
-    background-image: linear-gradient(90deg, #2563EB,#10B981);
-    padding-top: 200px;
-    padding-bottom: 200px;
-    text-align: center;
 }
-.centercard{
-    height:100vh;
-    justify-content:center;
-    align-items:center;
 
-    background: linear-gradient(-45deg,#4c5673,#3FA9F5,#2AC9A8,#3e596d);
-    background-size:400% 400%;
+main > div{
+    margin: 20vh 0;
+    width: 100%;
+    max-width: 1200px;
+    color: whitesmoke;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
 
-    animation: gradient 8s ease infinite;
+main > div > h1{
+    font-size: 4rem;
+}
+
+main > div > p{
+    font-size: 1.4rem;
+}
+
+main button{
+    background-color: var(--color-surface-dark);
+    color: var(--color-text-dark-primary);
+    padding: 20px 0;
+    font-size: 1rem;
+    width: 40%;
+    max-width: 250px;
+    border: none;
+    border-radius: 10px;
+    margin: 2rem 0 1.6rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.example{
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.example h1{
+    font-size: 3rem;
+}
+
+.example p{
+    font-size: 1.2rem;
 }
 
 @keyframes gradient{
@@ -88,46 +168,7 @@ nav a:hover{
         background-position:0% 50%;
     }
 }
-.centercard h1{
-    font-size: 50px;
-}
-.centercard p{
-    font-size: 18px;
-    padding-top: 10px;
-   color: rgba(255,255,255,0.85);
-}
-.centercard button{
-    padding-top: 12px;
-    padding-bottom: 12px;
-    padding-left: 18px;
-    padding-right: 18px;
-    font-size: 18px;
-    border-radius: 5px;
-    border: none;
-    margin-top: 30px;
-    background-color: #2d293b;
-    color: #FFFFFF;
-    transition: 0.3s;
-    box-shadow:0 10px 30px rgba(15,23,42,.25);
-}
-.centercard button:hover{
-background-color: #1e2023;
-transform:scale(1.04);
 
-}
-.example{
-    display: flex;
-    padding-top: 40px;
-    justify-content: center;
-    gap:20px;
-}
-
-.heading p{
-font-size: 13px;
-}
-.heading h1{
-font-size: 40px;
-}
 .features_heading{
     padding-top: 50px;
     text-align: center;
