@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skyper - Login</title>
+    <title>Skyper - Singup</title>
     <link rel="stylesheet" href="./css/stlye.css">
 </head>
 <body>
@@ -14,14 +14,16 @@
 
     <main>
         <section class="login-container">
-            <h2>Login</h2>
+            <h2>Signup</h2>
             <form id="login-form">
+                <input type="text" id="name" placeholder="Full Name" required>
                 <input type="email" id="login-email" placeholder="Email" required>
                 <input type="password" id="login-password" placeholder="Password" minlength="8" required>
-                <p id="login-error" class="error-message hidden"></p>
+                <input type="password" id="confirmPassword" placeholder="Confirm Password" minlength="8" required>
+                <p id="signup-error" class="error-message hidden"></p>
                 <button type="submit">Login</button>
             </form>
-            <p>Don't have an account? <a href="./register.html">Sign up</a></p>
+            <p>Already have an account? <a href="./login.html">Login</a></p>
         </section>
     </main>
 
