@@ -128,4 +128,38 @@ font-size: 13px;
 .heading h1{
 font-size: 40px;
 }
+.features_heading{
+    padding-top: 50px;
+    text-align: center;
+}
+.features_heading h1{
+font-size:40px;
+}
+.features_heading p{
+    font-size: 30px;
+    padding-top: 10px;
+}
+.features_card{
+padding-left: 150px;
+padding-top:50px;
+
+}
+.row1{
+    display:flex;
+    justify-content: center;
+    gap:20px;
+}
+.cards{
+    height: 180px;
+    width:300px;
+    border-radius: 10px;
+    background-color: white;
+   
+}
+.cards p{
+    padding-top: 20px;
+    padding-left: 7px;
+    font-size: 18px;
+}
+
 
