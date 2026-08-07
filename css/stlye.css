@@ -93,12 +93,13 @@ main{
     margin-bottom: 1rem;
 }
 
-#login-form{
+#login-form, #signup-form{
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 
+#signup-form > input,
 #login-form > input{
     font-size: 1rem;
     padding: 6px;
@@ -107,6 +108,9 @@ main{
     font-family: monospace;
 }
 
+
+#signup-form > input:focus,
+#signup-form > input:active,
 #login-form > input:focus,
 #login-form > input:active{
     border: 1px solid var(--color-primary);
@@ -115,6 +119,7 @@ main{
     outline-offset: 2px;
 }
 
+#signup-form > button,
 #login-form > button{
     padding: 6px;
     margin: 0 auto;
@@ -129,11 +134,13 @@ main{
     transition: all 0.3s ease;
 }
 
+#signup-form > button:hover,
 #login-form > button:hover{
     background-color: var(--color-primary-hover);
     cursor: pointer;
 }
 
+#signup-form > button:active,
 #login-form > button:active{
     scale: 0.99;
 }
