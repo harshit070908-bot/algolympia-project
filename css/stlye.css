@@ -1,0 +1,137 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+  /* Brand Colors */
+  --color-primary: #0052FF;          /* Main brand blue - buttons, links, active states */
+  --color-primary-hover: #0041CC;    /* Darker blue on hover */
+  --color-primary-light: #E6EFFF;    /* Light blue - backgrounds, badges */
+
+  --color-secondary: #00C896;        /* Success/growth green - profits, positive trends */
+  --color-secondary-hover: #00A67D;
+  --color-secondary-light: #E5F9F3;
+
+  --color-danger: #FF3B30;           /* Loss/error - red for negative numbers, errors */
+  --color-danger-hover: #E6291F;
+  --color-danger-light: #FFECEB;
+
+  --color-warning: #FFB800;          /* Alerts, pending states */
+  --color-warning-hover: #E6A600;
+  --color-warning-light: #FFF7E0;
+
+  /* Neutrals - Light Mode */
+  --color-bg-light: #FFFFFF;         /* Main background */
+  --color-surface-light: #F7F8FA;    /* Cards, panels */
+  --color-border-light: #E5E8EC;     /* Dividers, input borders */
+  --color-text-light-primary: #0A0E17;   /* Headings, main text */
+  --color-text-light-secondary: #5C6470; /* Subtext, labels */
+  --color-text-light-muted: #9CA3AF;     /* Placeholder, disabled */
+
+  /* Neutrals - Dark Mode */
+  --color-bg-dark: #0A0E17;          /* Main background */
+  --color-surface-dark: #131826;     /* Cards, panels */
+  --color-border-dark: #232936;      /* Dividers, input borders */
+  --color-text-dark-primary: #F5F7FA;    /* Headings, main text */
+  --color-text-dark-secondary: #9CA3AF;  /* Subtext, labels */
+  --color-text-dark-muted: #5C6470;      /* Placeholder, disabled */
+
+  /* Chart/Data Colors */
+  --color-chart-1: #0052FF;
+  --color-chart-2: #00C896;
+  --color-chart-3: #FFB800;
+  --color-chart-4: #7C3AED;
+  --color-chart-5: #FF3B30;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--color-bg-light);
+    font-family: Georgia, 'Times New Roman', Times, serif
+}
+
+header{
+    text-align: center;
+}
+
+header > h1{
+    padding: 10px 0;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+header > p{
+    font-family: monospace;
+}
+
+main{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-container{
+    background-color: var(--color-surface-light);
+    padding: 20px;
+    width: 100%;
+    min-width: 350px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.login-container > h2{
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+#login-form{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#login-form > input{
+    font-size: 1rem;
+    padding: 6px;
+    border: 1px solid var(--color-border-dark);
+    border-radius: 6px;
+    font-family: monospace;
+}
+
+#login-form > button{
+    padding: 6px;
+    background-color: var(--color-primary);
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: monospace;
+    color: var(--color-text-dark-primary);
+}
+
+#login-form > button:hover{
+    background-color: var(--color-primary-hover);
+    cursor: pointer;
+
+}
+
+.login-container > p{
+    margin: 0.5rem 0 0;
+    font-size: 1rem;
+    text-align: right;
+}
+
+.hidden{
+    display: none;
+}
+
+footer > p{
+    padding: 10px;
+}
+
