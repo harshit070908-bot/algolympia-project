@@ -33,6 +33,14 @@ Skyper Money provides a simple centralized dashboard where users can:
 
 ---
 
+## Bounty Tasks:
+
+- Core: Implemented finance-specific filters
+- Advanced: Generated a project-specific report export  
+- Elite: Added review status for each financial entry
+
+---
+
 ## Key Features
 
 ### Landing Page
