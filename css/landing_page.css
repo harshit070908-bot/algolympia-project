@@ -278,7 +278,7 @@ footer > p{
 ========================================= */
 
 .bottom {
-    background: #f7f8fa;
+    background: var(--color-bg-light);
     width: 100%;
 
     padding: 6rem 20px 7rem;
