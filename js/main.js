@@ -25,7 +25,7 @@ if(login){
     loginForm.addEventListener("submit", (e) => {
         e.preventDefault();
         loadUsers();
-
+        
         const user = users.find((user) => user.email === email.value.trim());
         if(!user){
             errorMessage.textContent = "No Accout Found";
@@ -37,21 +37,22 @@ if(login){
             errorMessage.classList.remove("hidden");
             return;
         }
-
+        
         saveUsers();
         errorMessage.classList.add("hidden");
-        window.location.href = `./index.html`;
+        window.location.href = `./dashboard.html`;
     });
 }
 
 if(signup){
     console.log("In the signup page");
-
+    
     const name = document.getElementById("name");
     const email = document.getElementById("email");
     const password = document.getElementById("password");
     const confirmPassword = document.getElementById("confirmPassword");
     const signupForm = document.getElementById("signup-form");
+    const errorMessage = document.getElementById("signup-error");
 
     signupForm.addEventListener("submit", (e) => {
         e.preventDefault();
@@ -65,19 +66,19 @@ if(signup){
             return;
         }
 
-        if(password !== confirmPassword){
+        if(password.value.trim() !== confirmPassword.value.trim()){
             errorMessage.textContent = "Password doesn't match.";
             errorMessage.classList.remove("hidden");
             return;
         }
 
         const newUser = {
-            "name": name,
-            "email": email,
-            "password": password
+            "name": name.value.trim(),
+            "email": email.value.trim(),
+            "password": password.value.trim()
         }
 
-        users.push(newAccount);
+        users.push(newUser);
 
         saveUsers();
         errorMessage.classList.add("hidden");

@@ -1,16 +1,15 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SkyperMoney</title>
-    <link rel="stylesheet" href="./css/landing_page.css">
+    <link rel="stylesheet" href="./css/landing_page.css" />
 </head>
 
 <body>
     <header>
-        <h1>Skyper <span>Money</span></h1>
+        <h1>Skyper<span>Money</span></h1>
         <div>
             <nav>
                 <a href="#">About</a>
@@ -18,68 +17,92 @@
                 <a href="#">Contact</a>
                 <a href="#">How it works</a>
             </nav>
-            <button>Get started→</button>
+            <button id="getStarted">Get started→</button>
         </div>
     </header>
 
     <main>
-        <div class="front">
-            <h1>Smart Budgeting<br>Starts Here.</h1>
-            <p>Skyper Money helps you plan every rupee, track expenses, and grow your savings effortlessly.</p>
-            <button>Start Splitting Expenses →</button>
-            <div class="example">
-                <div class="heading">
-                    <h1>₹5K</h1>
-                    <p>Avg Monthly Savings</p>
-                </div>
-                <div class="heading">
-                    <h1>8+</h1>
-                    <p>Budget Chambers</p>
-                </div>
-                <div class="heading">
-                    <h1>100%</h1>
-                    <p>Income Covered</p>
+        <section class="hero">
+            <div>
+                <h2>Smart Budgeting<br>Starts Here.</h2>
+                <p>
+                    Skyper Money helps you plan every rupee, track expenses, and grow
+                    your savings effortlessly.
+                </p>
+                <button id="startUsing">Start Splitting Expenses →</button>
+                <div class="stats">
+                    <div class="stat">
+                        <h3>₹5K</h3>
+                        <p>Avg Monthly Savings</p>
+                    </div>
+                    <div class="stat">
+                        <h3>8+</h3>
+                        <p>Budget Chambers</p>
+                    </div>
+                    <div class="stat">
+                        <h3>100%</h3>
+                        <p>Income Covered</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="white">
-            <div class="features_heading">
-                <h1> Money Chambers</h1>
+        </section>
+        <section class="features">
+            <div class="container">
+                <h2>Money Chambers</h2>
                 <p>Organize your income into dedicated categories</p>
-            </div>
-            <div class="features_card">
-                <div class="row1">
-                    <div class="cards">
-                        <h1>💰Emergency</h1>
-                        <p>Fund<br>Save for<br>emegrgencies</p>
+                <div class="cardsSection">
+                    <div class="card">
+                        <img src="./assets/images/saving.jpg">
+                        <div class="card-body">
+                            <h3>💰Emergency</h3>
+                            <p>Fund Save for emegrgencies</p>
+                        </div>
                     </div>
-                    <div class="cards">
-                        <h1>🍕Food </h1>
-                        <p>Daily expenses</p>
+                    <div class="card">
+                        <img src="./assets/images/food.jpg">
+                        <div class="card-body">
+                            <h3>🍕Food</h3>
+                            <p>Daily expenses</p>
+                        </div>
                     </div>
-                    <div class="cards">
-                        <h1>🏠Rent</h1>
-                        <p>Monthly rent</p>
+                    <div class="card">
+                        <img src="./assets/images/rent.jpg">
+                        <div class="card-body">
+                            <h3>🏠Rent</h3>
+                            <p>Monthly rent</p>
+                        </div>
                     </div>
-                    
+                    <div class="card">
+                        <img src="./assets/images/travel.jpg">
+                        <div class="card-body">
+                            <h3>✈Travel</h3>
+                            <p>Save for trips</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="./assets/images/investment.jpg">
+                        <div class="card-body">
+                            <h3>📈Investment</h3>
+                            <p>Grow wealth</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="./assets/images/shopping.jpg">
+                        <div class="card-body">
+                            <h3>🛍Shopping</h3>
+                            <p>Personal buys</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="row1">
-                    <div class="cards">
-                        <h1>✈Travel</h1>
-                        <p>Save for trips</p>
-                    </div>
-                    <div class="cards">
-                        <h1>📈Investment</h1>
-                        <p>Grow wealth</p>
-                    </div>
-                    <div class="cards">
-                        <h1>🛍Shopping</h1>
-                        <p>Personal buys</p>
-                    </div>
-                </div>
             </div>
-        </div>
+        </section>
     </main>
+
+    <footer>
+        <p>Skyper - &copy; All Copyrights Reserved.</p>
+    </footer>
+
+    <script src="./js/landingPage.js"></script>
 </body>
 
 </html>
