@@ -49,6 +49,48 @@ let transactions = [
     }
 ];
 
+let categories = [
+    {
+        name: "Food",
+        icon: "🍕"
+    },
+    {
+        name: "Rent",
+        icon: "🏠"
+    },
+    {
+        name: "Travel",
+        icon: "✈️"
+    },
+    {
+        name: "Shopping",
+        icon: "🛍️"
+    },
+    {
+        name: "Investment",
+        icon: "📈"
+    },
+    {
+        name: "Emergency",
+        icon: "💰"
+    },
+    {
+        name: "Other",
+        icon: "📦"
+    }
+];
+
+const openCategoryBtn =
+    document.getElementById("openCategoryBtn");
+
+const categoryModal =
+    document.getElementById("categoryModal");
+
+const closeCategoryModalBtn =
+    document.getElementById("closeCategoryModalBtn");
+
+const categoryForm =
+    document.getElementById("categoryForm");
 
 const balanceElement =
     document.getElementById("balance");
@@ -71,14 +113,25 @@ const transactionsList =
 const categoriesList =
     document.getElementById("categoriesList");
 
+const exportBtn =
+    document.getElementById("exportBtn");
+
+const filterBtn =
+    document.getElementById("filterBtn");
+
+const filterPanel =
+    document.getElementById("filterPanel");
+
+const filterType =
+    document.getElementById("filterType");
+
+const filterCategory =
+    document.getElementById("filterCategory");
 
 // Modal
 
 const modal =
     document.getElementById("transactionModal");
-
-const openTransactionBtn =
-    document.getElementById("openTransactionBtn");
 
 const openTransactionBtn2 =
     document.getElementById("openTransactionBtn2");
@@ -94,9 +147,88 @@ const transactionForm =
 // OPEN / CLOSE MODAL
 // ============================
 
-openTransactionBtn.addEventListener(
+openCategoryBtn.addEventListener(
     "click",
-    openModal
+    () => {
+        categoryModal.classList.remove("hidden");
+    }
+);
+
+closeCategoryModalBtn.addEventListener(
+    "click",
+    () => {
+        categoryModal.classList.add("hidden");
+        categoryForm.reset();
+    }
+);
+
+categoryModal.addEventListener(
+    "click",
+    (event) => {
+
+        if (event.target === categoryModal) {
+
+            categoryModal.classList.add("hidden");
+
+            categoryForm.reset();
+
+        }
+
+    }
+);
+
+categoryForm.addEventListener(
+    "submit",
+    (event) => {
+
+        event.preventDefault();
+
+
+        const name =
+            document.getElementById(
+                "categoryName"
+            ).value.trim();
+
+
+        const icon =
+            document.getElementById(
+                "categoryIcon"
+            ).value.trim() || "📦";
+
+
+        if (!name) {
+            return;
+        }
+
+
+        categories.push({
+            name,
+            icon
+        });
+
+
+        updateCategoryOptions();
+
+
+        categoryModal.classList.add("hidden");
+
+        categoryForm.reset();
+
+    }
+);
+
+filterBtn.addEventListener("click", () => {
+    filterPanel.classList.toggle("hidden");
+});
+
+filterType.addEventListener(
+    "change",
+    renderTransactions
+);
+
+filterCategory.addEventListener(
+    "change",
+    renderTransactions
 );
 
 openTransactionBtn2.addEventListener(
@@ -110,31 +242,99 @@ closeModalBtn.addEventListener(
     closeModal
 );
 
+exportBtn.addEventListener(
+    "click",
+    exportReport
+);
+
+function updateCategoryOptions() {
+
+    const categorySelect =
+        document.getElementById(
+            "transactionCategory"
+        );
+
+
+    categorySelect.innerHTML = "";
+
+
+    categories.forEach(category => {
+
+        const option =
+            document.createElement("option");
+
+
+        option.value = category.name;
+
+        option.textContent =
+            `${category.icon} ${category.name}`;
+
+
+        categorySelect.appendChild(option);
+
+    });
+
+}
+
+function exportReport() {
+
+    const headers = [
+        "Title",
+        "Amount",
+        "Type",
+        "Category"
+    ];
+    const rows = transactions.map(
+        transaction => [
+            transaction.title,
+            transaction.amount,
+            transaction.type,
+            transaction.category
+        ]
+    );
+    const csv = [
+        headers,
+        ...rows
+    ]
+    .map(row =>
+        row.join(",")
+    )
+    .join("\n");
+    const blob =
+        new Blob(
+            [csv],
+            {
+                type: "text/csv"
+            }
+        );
+    const url =
+        URL.createObjectURL(blob);
+    const link =
+        document.createElement("a");
+    link.href = url;
+    link.download =
+        "skyper-money-report.csv";
+    link.click();
+    URL.revokeObjectURL(url);
+
+}
 
 function openModal() {
-
     modal.classList.remove("hidden");
 }
 
-
 function closeModal() {
-
     modal.classList.add("hidden");
-
     transactionForm.reset();
 }
 
 
-// Close when clicking outside
+// Close when clicking- outside
 
 modal.addEventListener("click", (event) => {
-
     if (event.target === modal) {
-
         closeModal();
-
     }
-
 });
 
 
@@ -143,52 +343,28 @@ modal.addEventListener("click", (event) => {
 // ============================
 
 function calculateSummary() {
-
     let income = 0;
-
     let expenses = 0;
-
-
     transactions.forEach(transaction => {
-
         if (transaction.type === "income") {
-
             income += transaction.amount;
-
         } else {
-
             expenses += transaction.amount;
-
         }
-
     });
-
-
     const savings = income - expenses;
-
-
     const savingsRate =
         income > 0
             ? (savings / income) * 100
             : 0;
-
-
     balanceElement.textContent =
         formatCurrency(savings);
-
-
     incomeElement.textContent =
         formatCurrency(income);
-
-
     expensesElement.textContent =
         formatCurrency(expenses);
-
-
     savingsElement.textContent =
         formatCurrency(savings);
-
-
     savingsRateElement.textContent =
         `${savingsRate.toFixed(1)}% savings rate`;
 
@@ -203,18 +379,45 @@ function renderTransactions() {
 
     transactionsList.innerHTML = "";
 
+    let filteredTransactions = [...transactions];
+
+
+    // Filter by type
+
+    if (filterType.value !== "all") {
+
+        filteredTransactions =
+            filteredTransactions.filter(
+                transaction =>
+                    transaction.type === filterType.value
+            );
+
+    }
+
+
+    // Filter by category
+
+    if (filterCategory.value !== "all") {
+
+        filteredTransactions =
+            filteredTransactions.filter(
+                transaction =>
+                    transaction.category === filterCategory.value
+            );
+
+    }
+
 
     const recentTransactions =
-        [...transactions]
-        .reverse()
-        .slice(0, 8);
+        filteredTransactions
+            .reverse()
+            .slice(0, 8);
 
 
     recentTransactions.forEach(transaction => {
 
         const transactionElement =
             document.createElement("div");
-
 
         transactionElement.classList.add(
             "transaction"
@@ -257,8 +460,7 @@ function renderTransactions() {
             <div class="transaction-right">
 
                 <span
-                    class="transaction-amount
-                    ${transaction.type}"
+                    class="transaction-amount ${transaction.type}"
                 >
                     ${sign}${formatCurrency(transaction.amount)}
                 </span>
