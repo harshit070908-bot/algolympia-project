@@ -1,4 +1,4 @@
-# Skyper Money 💰
+# Skyper Money
 
 > **Smart budgeting starts here.**
 
@@ -10,9 +10,9 @@ Skyper Money is a personal finance and budgeting web application built for our h
 
 | Member | Role |
 |---|---|
-| **Harshit Singh Rana** | Frontend Development, JavaScript, Application Logic |
-| **Naman Kothari** | Team Member |
-| **Jatin Gariya** | Team Member |
+| **Harshit Singh Rana** | JavaScript, Application Logic |
+| **Naman Kothari** | HTML, CSS |
+| **Jatin Gariya** | Program Manager |
 
 ---
 
