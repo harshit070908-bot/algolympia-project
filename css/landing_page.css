@@ -419,56 +419,216 @@ footer > p{
 }
 
 
-/* =========================================
-   RESPONSIVE
-========================================= */
+/* ================================
+   RESPONSIVE DESIGN
+================================ */
 
+/* Tablets */
 @media (max-width: 1000px) {
 
-    .how-it-work-cards {
-
-        grid-template-columns:
-            repeat(2, 1fr);
+    header {
+        width: calc(100% - 30px);
+        padding: 16px 20px;
     }
 
-}
-
-
-@media (max-width: 600px) {
-
-    .bottom {
-
-        padding: 4rem 15px 5rem;
+    main h2 {
+        font-size: 3.7rem;
     }
 
+    .stats {
+        gap: 3rem;
+    }
 
-    .bottom > h1 {
-
+    .stats h3 {
         font-size: 2.5rem;
     }
 
-
-    .bottom > p {
-
-        font-size: 1rem;
-
-        margin-bottom: 2.5rem;
+    .cardsSection {
+        grid-template-columns: repeat(2, 1fr);
     }
 
+    .how-it-work-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .container > h2,
+    .bottom > h1 {
+        font-size: 3rem;
+    }
+}
+
+
+/* Small tablets */
+@media (max-width: 768px) {
+
+    header {
+        width: calc(100% - 24px);
+        padding: 14px 16px;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    nav {
+        gap: 12px;
+    }
+
+    header a {
+        font-size: 0.9rem;
+    }
+
+    main h2 {
+        font-size: 3.1rem;
+    }
+
+    main p {
+        font-size: 1.1rem;
+    }
+
+    .stats {
+        gap: 2rem;
+    }
+
+    .stats h3 {
+        font-size: 2.2rem;
+    }
+
+    .container > h2 {
+        font-size: 2.7rem;
+    }
+
+    .bottom > h1 {
+        font-size: 2.7rem;
+    }
+}
+
+
+/* Mobile */
+@media (max-width: 600px) {
+
+    header {
+        width: calc(100% - 20px);
+        padding: 12px 14px;
+    }
+
+    header h1 {
+        font-size: 1.3rem;
+    }
+
+    header a {
+        font-size: 0.8rem;
+    }
+
+    header button {
+        padding: 9px 12px;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 90px 18px 60px;
+    }
+
+    main h2 {
+        font-size: clamp(2.4rem, 11vw, 3.2rem);
+    }
+
+    main p {
+        font-size: 1rem;
+    }
+
+    main button {
+        width: 100%;
+        max-width: 300px;
+        min-width: unset;
+    }
+
+    .stats {
+        width: 100%;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+
+    .stats h3 {
+        font-size: 1.8rem;
+    }
+
+    .stats p {
+        font-size: 0.85rem;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    .container > h2,
+    .bottom > h1 {
+        font-size: 2.3rem;
+    }
+
+    .container > p,
+    .bottom > p {
+        font-size: 1rem;
+    }
+
+    .cardsSection {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
 
     .how-it-work-cards {
-
         grid-template-columns: 1fr;
-
         gap: 15px;
     }
 
-
     .cards {
-
         min-height: 220px;
-
-        padding: 1.8rem 1.3rem;
     }
 
+    .card > img {
+        height: 210px;
+    }
+
+    .bottom {
+        padding: 4rem 15px 5rem;
+    }
+}
+
+
+/* Very small phones */
+@media (max-width: 400px) {
+
+    header h1 {
+        font-size: 1.15rem;
+    }
+
+    header a {
+        font-size: 0.72rem;
+    }
+
+    header button {
+        padding: 8px 10px;
+        font-size: 0.75rem;
+    }
+
+    main h2 {
+        font-size: 2.25rem;
+    }
+
+    .stats {
+        gap: 1rem;
+    }
+
+    .stats h3 {
+        font-size: 1.55rem;
+    }
+
+    .stats p {
+        font-size: 0.75rem;
+    }
+
+    .container > h2,
+    .bottom > h1 {
+        font-size: 2rem;
+    }
 }
