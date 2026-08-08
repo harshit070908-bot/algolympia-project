@@ -70,6 +70,7 @@ header{
     border-radius: 12px;
     transition: scale 0.3s ease;
     position: sticky;
+    z-index: 999;
     top: 1rem;
 }
 header:hover{
