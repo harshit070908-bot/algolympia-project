@@ -174,4 +174,95 @@ main{
 footer > p{
     padding: 10px;
 }
+/* ================================
+   RESPONSIVE DESIGN
+================================ */
+
+/* Tablets */
+@media (max-width: 768px) {
+
+    .login-container {
+        width: min(90vw, 450px);
+        min-width: unset;
+    }
+
+    header > h1 {
+        font-size: 1.8rem;
+    }
+
+    main {
+        width: 100%;
+        padding: 20px;
+    }
+}
+
+
+/* Mobile */
+@media (max-width: 500px) {
+
+    body {
+        padding: 0 10px;
+    }
+
+    header > h1 {
+        font-size: 1.6rem;
+    }
+
+    header > p {
+        font-size: 0.8rem;
+    }
+
+    main {
+        width: 100%;
+        padding: 20px 5px;
+    }
+
+    .login-container {
+        width: 100%;
+        min-width: unset;
+        padding: 18px;
+    }
+
+    .login-container > h2 {
+        font-size: 1.5rem;
+    }
+
+    #signup-form > input,
+    #login-form > input {
+        width: 100%;
+        font-size: 0.95rem;
+        padding: 8px;
+    }
+
+    #signup-form > button,
+    #login-form > button {
+        width: 70%;
+    }
+
+    .login-container > p {
+        font-size: 0.9rem;
+    }
+
+    .errorMessage {
+        font-size: 0.85rem;
+    }
+}
+
+
+/* Very small phones */
+@media (max-width: 350px) {
+
+    .login-container {
+        padding: 15px;
+    }
+
+    header > h1 {
+        font-size: 1.4rem;
+    }
+
+    #signup-form > button,
+    #login-form > button {
+        width: 80%;
+    }
+}
 
