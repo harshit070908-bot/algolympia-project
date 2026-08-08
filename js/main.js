@@ -39,7 +39,14 @@ if(login){
         }
         
         saveUsers();
+
+        localStorage.setItem(
+            "currentUser",
+            user.email
+        );
+
         errorMessage.classList.add("hidden");
+
         window.location.href = `./dashboard.html`;
     });
 }
@@ -58,7 +65,7 @@ if(signup){
         e.preventDefault();
         loadUsers();
 
-        const user = users.find((user) => user.email === email);
+        const user = users.find((user) => user.email === email.value.trim());
 
         if(user){
             errorMessage.textContent = "Account already Exists!";

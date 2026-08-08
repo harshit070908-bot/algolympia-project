@@ -1,54 +1,3 @@
-let transactions = [
-
-    {
-        id: 1,
-        title: "Monthly Salary",
-        amount: 45000,
-        type: "income",
-        category: "Income"
-    },
-
-    {
-        id: 2,
-        title: "Rent",
-        amount: 8000,
-        type: "expense",
-        category: "Rent"
-    },
-
-    {
-        id: 3,
-        title: "Groceries",
-        amount: 3500,
-        type: "expense",
-        category: "Food"
-    },
-
-    {
-        id: 4,
-        title: "Metro",
-        amount: 1200,
-        type: "expense",
-        category: "Travel"
-    },
-
-    {
-        id: 5,
-        title: "New Shoes",
-        amount: 2500,
-        type: "expense",
-        category: "Shopping"
-    },
-
-    {
-        id: 6,
-        title: "Mutual Fund",
-        amount: 5000,
-        type: "expense",
-        category: "Investment"
-    }
-];
-
 let categories = [
     {
         name: "Food",
@@ -142,6 +91,25 @@ const closeModalBtn =
 const transactionForm =
     document.getElementById("transactionForm");
 
+// ============================
+// LOCAL STORAGE
+// ============================
+
+const currentUser =
+    localStorage.getItem("currentUser") || "guest";
+
+const storageKey =
+    `skyperMoney_${currentUser}`;
+
+
+const savedData =
+    JSON.parse(
+        localStorage.getItem(storageKey)
+    );
+
+
+let transactions =
+    savedData?.transactions || [];
 
 // ============================
 // OPEN / CLOSE MODAL
@@ -247,6 +215,26 @@ exportBtn.addEventListener(
     exportReport
 );
 
+// ====================================
+// ===========FUNCTIONS================
+// ===================================
+
+function saveData() {
+
+    const data = {
+
+        transactions: transactions
+
+    };
+
+
+    localStorage.setItem(
+        storageKey,
+        JSON.stringify(data)
+    );
+
+}
+
 function updateCategoryOptions() {
 
     const categorySelect =
@@ -337,6 +325,35 @@ modal.addEventListener("click", (event) => {
     }
 });
 
+const users =
+    JSON.parse(
+        localStorage.getItem("users")
+    ) || [];
+
+const loggedInUser =
+    users.find(
+        user => user.email === currentUser
+    );
+
+
+if (loggedInUser) {
+
+    document.getElementById(
+        "welcomeMessage"
+    ).textContent =
+        `Good morning, ${loggedInUser.name} 👋`;
+
+
+    const profileBtn =
+        document.getElementById("profileBtn");
+
+    profileBtn.textContent =
+        loggedInUser.name
+            .charAt(0)
+            .toUpperCase();
+
+}
+
 
 // ============================
 // CALCULATE SUMMARY
@@ -382,6 +399,7 @@ function renderTransactions() {
     let filteredTransactions = [...transactions];
 
 
+    // Filter by type
     // Filter by type
 
     if (filterType.value !== "all") {
@@ -498,6 +516,7 @@ function deleteTransaction(id) {
                 transaction.id !== id
         );
 
+    saveData();
 
     updateDashboard();
 
@@ -695,16 +714,15 @@ transactionForm.addEventListener(
 
         };
 
-
         transactions.push(
             transaction
         );
 
+        saveData();
 
         updateDashboard();
 
         closeModal();
-
     }
 );
 
